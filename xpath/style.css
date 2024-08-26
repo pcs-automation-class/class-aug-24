@@ -1,3 +1,7 @@
-p {
+p, span {
     background: green;
+}
+span {
+    color: white;
+    font-size: 2em;
 }
