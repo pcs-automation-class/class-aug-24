@@ -25,3 +25,5 @@ venv\Scripts\activate
 ``` bash
 pip install -r requirements.txt
 ```
+
+Notes: learn git is cool so far
