@@ -12,7 +12,7 @@ cd your-repository-folder
 Mac/Linux
 ``` bash
 python3 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate
 ```
 
 Windows
@@ -26,4 +26,8 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Notes: learn git is cool so far
+or
+
+``` bash
+pip3 install -r requirements.txt
+```
