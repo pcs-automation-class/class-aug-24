@@ -9,7 +9,6 @@ Feature: Test login functionality
     Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
 #    Then Wait 1 seconds
     Then Type "Qwerty7" into "//input[@name='password']"
-#    Then Wait 1 seconds
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
