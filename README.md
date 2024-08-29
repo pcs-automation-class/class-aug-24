@@ -26,4 +26,4 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Notes: learn git is cool
+Notes: learn git is not cool
