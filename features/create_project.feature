@@ -23,8 +23,4 @@ Feature: Test login functionality
       Then Click element "//div[@class='FPdoLc lJ9FBc']//input[@value='Google Search']"
       Then Wait 3 seconds
       Then Click element "//div[text()='Images']"
-#      Then Click element "//a[text()='Login']"
       Then Wait 3 seconds
-#      Then Click element "//button[contains(text(), 'Login')]"
-#      Then Verify presents of element "//div[text()='Email is required']"
-#      Then Wait 3 seconds
