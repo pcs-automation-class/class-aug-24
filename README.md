@@ -32,4 +32,4 @@ or
 pip3 install -r requirements.txt
 ```
 
-Note: Soon
+Note: Some note
