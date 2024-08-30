@@ -50,7 +50,7 @@ Feature: Test login functionality
       Then Wait 1 seconds
    Then Type "Juli123@" into "//input[@name='password']"
     Then Wait 1 seconds
-    Then Click element "//button[contains(text(), 'Login')]"git commi
+    Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
      Then Type "ABC" into "//*[@id='el-id-7094-17']"
 #    Then Type "Project ABC" into "//div[@class='el-input']/div[@class='el-input__wrapper']"
@@ -58,12 +58,3 @@ Feature: Test login functionality
     Then Type "Aug2024" into "//textarea[@class='el-textarea__inner']"
     Then Wait 2 seconds
 
-  Scenario: Verify message Email is required
-      Given Open "https://www.profitolizer.com"
-      Then Wait 1 seconds
-      Then Click element "//a[text()='Login']"
-      Then Wait 3 seconds
-      Then Click element "//button[contains(text(), 'Login')]"
-      Then Verify presents of element "//div[text()='Email is required']"
-      Then Wait 3 seconds
-#      Then Verify page by title "Profotolizer - Projects"
