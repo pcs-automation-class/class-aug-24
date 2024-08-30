@@ -36,3 +36,16 @@ def verify_title(context, text):
 def verify_presents_of_element(context, xpath):
     elements = context.driver.find_elements(By.XPATH, xpath)
     assert len(elements) == 1
+
+
+@step("Fill out following information")
+def create_project(context):
+    print()
+    for row in context.table:
+        pass
+
+
+@step("Fill out following information with keys")
+def create_project_keys(context):
+    for row in context.table:
+        pass
