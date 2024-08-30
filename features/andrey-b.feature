@@ -1,9 +1,12 @@
 Feature: Test login functionality
 
-  Scenario: Login with correct credentials
+  Background:
     Given Open "https://www.profitolizer.com"
-    Then Wait 1 seconds
+    Then Wait 3 seconds
     Then Click element "//a[text()='Login']"
+    Then Wait 1 seconds
+
+  Scenario: Login with correct credentials
     Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
     Then Type "Qwerty7" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
@@ -11,19 +14,12 @@ Feature: Test login functionality
     Then Verify page by title "Profotolizer - Projects"
 
   Scenario: Verify message Email is required
-    Given Open "https://www.google.com"
+    Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 3 seconds
-    Then Type "aaaaa" into "//textarea[@title='Search']"
-    Then Wait 1 seconds
-    Then Click element "//div[@class='FPdoLc lJ9FBc']//input[@value='Google Search']"
-    Then Wait 3 seconds
-    Then Click element "//div[text()='Images']"
+    Then Verify presents of element "//div[text()='Email is required']"
     Then Wait 3 seconds
 
-  Scenario Outline: Login with correct credentials
-    Given Open "https://www.profitolizer.com"
-    Then Wait 3 seconds
-    Then Click element "//a[text()='Login']"
+  Scenario Outline: Log in with correct credentials
     Then Type "<username>" into "//input[@name='username']"
     Then Type "<password>" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
@@ -34,3 +30,22 @@ Feature: Test login functionality
       | pcs.automationclass@gmail.com   | Qwerty7   | Profotolizer - Projects |
       | pcs.automationclass+1@gmail.com | Qwerty7+1 | Profotolizer - Projects |
       | pcs.automationclass+2@gmail.com | Qwerty7+2 | Profotolizer - Projects |
+
+  Scenario: Create new project
+    Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
+    Then Type "Qwerty7" into "//input[@name='password']"
+    Then Click element "//button[contains(text(), 'Login')]"
+    Then Wait 1 seconds
+    Then Verify page by title "Profotolizer - Projects"
+    Then Fill out following information
+      | project       | start_date | description      | dimension | duration |
+      | first project | 09/12/2024 | My first project | Month     | 2 years  |
+    Then Fill out following information with keys
+      | key           | value            |
+      | project       | first project    |
+      | start_date    | 09/12/2024       |
+      | description   | My first project |
+      | dimension     | Month            |
+      | duration      | 2 years          |
+    Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
+    Then Wait 5 seconds
