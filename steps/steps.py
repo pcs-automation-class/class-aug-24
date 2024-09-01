@@ -13,12 +13,10 @@ def open_url(context, url):
 def wait_sec(context, sec):
     sleep(int(sec))
 
-
 @step('Click element "{xpath}"')
 def click_element(context, xpath):
     element = context.driver.find_element(By.XPATH, xpath)
     element.click()
-
 
 @step('Type "{text}" into "{xpath}"')
 def step_impl(context, text, xpath):

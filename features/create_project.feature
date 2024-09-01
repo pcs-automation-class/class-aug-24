@@ -15,6 +15,28 @@ Feature: Test login functionality
     Then Verify page by title "Profotolizer - Projects"
 
 
+
+ Scenario: Calculator
+    Given Open "https://www.profitolizer.com"
+    Then Wait 1 seconds
+    Then Click element "//div [@class='hero-desc__block']/a[@class='_btn _btn__primary _btn__arrow _btn__big scrollto-js'and @href='#mainForm']"
+          Then Wait 2 seconds
+    Then Type "DoroninQA@gmail.com" into "//input[@name='email']"
+          Then Wait 2 seconds
+    Then Type "Test" into "//input[@name='project_name']"
+          Then Wait 2 seconds
+    Then Click element "//label[@for='three']"
+          Then Wait 2 seconds
+    Then Click element " element "//div[@class='main-form__group _desctop']//input[@type='checkbox']"
+          Then Wait 2 seconds
+    Then Click element "//button[@name='submit' and text() ='Calculate']"
+          Then Wait 2 seconds
+    Then Verify presents of element "//h1[contains(text(),'P&L')]"
+
+
+
+
+
     Scenario: Verify message Email is required
       Given Open "https://www.google.com"
       Then Wait 3 seconds
