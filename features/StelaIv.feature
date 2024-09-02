@@ -81,3 +81,22 @@ Feature: Test login functionality
     |salesproducts79@gmail.com  | abc123   |Profotolizer - Projects|
     |salesproducts79+1@gmail.com| abc123+1 |Profotolizer - Projects|
     |salesproducts79+2@gmail.com| abc123+2 |Profotolizer - Projects|
+
+    Scenario: Create New project
+
+      Then Type "salesproducts79@gmail.com" into "//input[@type='text']"
+    Then Wait 1 seconds
+    Then Type "abc123" into "//input[@type='password']"
+    Then Wait 1 seconds
+    Then Click element "//button[@type='submit']"
+    Then Wait 1 seconds
+    Then Verify page by title "Profotolizer - Projects"
+    Then Fill out following information
+      | project | start_date | description | dimension | duration |
+      | New Project| 09/13/2024 | My first project | month | 1 year |
+
+      Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
+      Then Wait 3 seconds
+      
+
+
