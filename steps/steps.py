@@ -30,3 +30,22 @@ def step_impl(context, text, xpath):
 def verify_title(context, text):
     title = context.driver.title
     assert title == text
+
+
+@step('Verify presents of element "{xpath}"')
+def verify_presents_of_element(context, xpath):
+    elements = context.driver.find_elements(By.XPATH, xpath)
+    assert len(elements) == 1
+
+
+@step("Fill out following information")
+def create_project(context):
+    print()
+    for row in context.table:
+        pass
+
+
+@step("Fill out following information with keys")
+def create_project_keys(context):
+    for row in context.table:
+        pass
