@@ -31,6 +31,7 @@ Feature: Test login functionality
       | pcs.automationclass+1@gmail.com | Qwerty7+1 | Profotolizer - Projects |
       | pcs.automationclass+2@gmail.com | Qwerty7+2 | Profotolizer - Projects |
 
+
   Scenario: Create new project
     Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
     Then Type "Qwerty7" into "//input[@name='password']"
