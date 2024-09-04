@@ -37,15 +37,15 @@ Feature: Test login functionality
     Then Click element "//button[contains(text(), 'Login')]"
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
-    Then Fill out following information
-      | project       | start_date | description      | dimension | duration |
-      | first project | 09/12/2024 | My first project | Month     | 2 years  |
+#    Then Fill out following information
+#      | project       | start_date | description      | dimension | duration |
+#      | first project | 09/12/2024 | My first project | Month     | 2 Years  |
     Then Fill out following information with keys
-      | key           | value            |
-      | project       | first project    |
-      | start_date    | 09/12/2024       |
-      | description   | My first project |
-      | dimension     | Month            |
-      | duration      | 2 years          |
+      | key                 | value            |
+      | Project Name        | first project 1  |
+      | Start date          | 09/12/2024       |
+      | Project description | My first project |
+      | Period Dimension    | Month            |
+      | Project Duration    | 2 Years          |
     Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
     Then Wait 5 seconds
