@@ -21,7 +21,7 @@ def click_element(context, xpath):
 
 
 @step('Type "{text}" into "{xpath}"')
-def step_impl(context, text, xpath):
+def type_text(context, text, xpath):
     element = context.driver.find_element(By.XPATH, xpath)
     element.send_keys(text)
 
@@ -36,3 +36,42 @@ def verify_title(context, text):
 def verify_presents_of_element(context, xpath):
     elements = context.driver.find_elements(By.XPATH, xpath)
     assert len(elements) == 1
+
+
+@step("Fill out following information")
+def create_project(context):
+    elements = {
+        'project': "//div[./label[text()='Project Name']]//input",
+        'start_date': "//input[@placeholder='Start date']",
+        'description': "//div[./label[text()='Project description']]//textarea",
+        'dimension': "//span[text()='Period Dimension']",
+        'duration': "//span[text()='",
+    }
+    for row in context.table:
+        type_text(context, row[0], elements['project'])
+        type_text(context, row[1], elements['start_date'])
+        type_text(context, row[2], elements['description'])
+        click_element(context, elements['dimension'])
+        sleep(1)
+        click_element(context, f"//li/span[text()='{row[3]}']")
+        click_element(context, f"{elements['duration']}{row[4]}']")
+
+
+@step("Fill out following information with keys")
+def create_project_keys(context):
+    elements = {
+        'Project Name': "//div[./label[text()='Project Name']]//input",
+        'Start date': "//input[@placeholder='Start date']",
+        'Project description': "//div[./label[text()='Project description']]//textarea",
+        'Period Dimension': "//span[text()='Period Dimension']",
+        'Project Duration': "//div[./label[text()='Project Duration']]//span[text()='",
+    }
+    for row in context.table:
+        if row.cells[0] in ['Project Name', 'Start date', 'Project description']:
+            type_text(context, row.cells[1], elements[row.cells[0]])
+        elif row.cells[0] == 'Period Dimension':
+            click_element(context, elements[row.cells[0]])
+            sleep(0.5)
+            click_element(context, f"//li/span[text()='{row.cells[1]}']")
+        else:
+            click_element(context, f"{elements[row.cells[0]]}{row.cells[1]}']")
