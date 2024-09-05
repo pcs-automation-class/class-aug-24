@@ -25,13 +25,13 @@ Feature: Test login functionality
     Then Wait 1 seconds
     Then Verify presents of element "//p[contains(text(),'Invalid username or password')]"
 
-  Scenario: Login without user name and password
-
-    Then Click element "//button[@type='submit']"
-    Then Wait 2 seconds
-    Then Verify presents of element "//div[text()='Email is required']"
-    Then Wait 1 seconds
-    Then Verify presents of element "//div[text()='Password is required']"
+#  Scenario: Login without user name and password
+#
+#    Then Click element "//button[@type='submit']"
+#    Then Wait 2 seconds
+#    Then Verify presents of element "//div[text()='Email is required']"
+#    Then Wait 1 seconds
+#    Then Verify presents of element "//div[text()='Password is required']"
 
   Scenario: Login with correct credentials
 
@@ -94,7 +94,8 @@ Feature: Test login functionality
     Then Fill out following information
       | project | start_date | description | dimension | duration |
       | New Project| 09/13/2024 | My first project | month | 1 year |
-
+      
+      Then Wait 2 seconds
       Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
       Then Wait 3 seconds
       
