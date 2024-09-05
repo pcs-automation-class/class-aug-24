@@ -15,4 +15,13 @@ Feature: E2E Web-log in use case. Positive.
     Then Wait 1 seconds
     Then Verify page by title "Profotolizer - Projects"
 
+
+     Given Open "https://www.profitolizer.com"
+    Then Wait 1 seconds
+    Then Click element "//a[text()='Login']"
+    Then Wait 3 seconds
+    Then Click element "//button[contains(text(), 'Login')]"
+    Then Verify presents of element "//div[text()='Email is required']"
+    Then Wait 3 seconds
+    Then Verify presents of element "//div[text()='Password is required']"
       

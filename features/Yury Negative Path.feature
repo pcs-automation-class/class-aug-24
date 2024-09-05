@@ -1,6 +1,6 @@
 Feature: E2E Web-log in use case. Negative.
 
-  Scenario: Open web site and navigate to log in link. Log in with valid credentials (both password and username are correct).
+  Scenario: Open web site and navigate to log in link. Log in with invalid credentials (both password and username are incorrect).
     Given Open "https://www.profitolizer.com"
     Then Wait 1 seconds
     Then Click element "//a[text()='Login']"
