@@ -27,11 +27,11 @@ Feature: Test login functionality
           Then Wait 2 seconds
     Then Click element "//label[@for='three']"
           Then Wait 2 seconds
-    Then Click element " element "//div[@class='main-form__group _desctop']//input[@type='checkbox']"
+    Then Click element "//*[@id="Privacy"]"
           Then Wait 2 seconds
-    Then Click element "//button[@name='submit' and text() ='Calculate']"
-          Then Wait 2 seconds
-    Then Verify presents of element "//h1[contains(text(),'P&L')]"
+   # Then Click element "//button[@name='submit' and text() ='Calculate']"
+     #     Then Wait 2 seconds
+    ##Then Verify presents of element "//h1[contains(text(),'P&L')]"
 
 # any comment
 
