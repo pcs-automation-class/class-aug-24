@@ -10,7 +10,7 @@ def final_price(price, discount):
 
 price = 10
 
-#block of calculating
+##block of calculating
 if age <= 10:
     print('You are not allowed to buy this product.')
 elif age > 10 and age <= 16:
