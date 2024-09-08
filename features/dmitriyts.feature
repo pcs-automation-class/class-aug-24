@@ -2,15 +2,10 @@ Feature: Test login functionality
 
   Scenario: Login with correct credentials
     Given Open "https://profitolizer.com/"
-#    Then Wait 4 seconds
     Then Click element "//a[@class='header-link _btn__link']"
-#    Then Wait 4 seconds
     Then Type "vasianw@mail.ru" into "//input[@class='ps-3 form-control el-input is-invalid']"
-#    Then Wait 1 seconds
     Then Type "vasian12345" into "//input[@name='password']"
-#    Then Wait 1 seconds
     Then Click element "//button[@type='submit']"
-#    Then Wait 4 seconds
     Then Verify presents of element "//span[text()='vasianw']"
 
 
