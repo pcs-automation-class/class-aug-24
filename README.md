@@ -11,13 +11,13 @@ cd your-repository-folder
 ### Create a Virtual Environment (Optional but recommended):
 Mac/Linux
 ``` bash
-python3 -m venv venv
+python3 -m venv .venv
 source venv/bin/activate
 ```
 
 Windows
 ``` bash
-python3 -m venv venv
+python3 -m venv .venv
 venv\Scripts\activate
 ```
 
