@@ -16,12 +16,6 @@
 # from python.lesson_7 import first_number
 #
 #
-# def calculate(dicount,sineor_discount):
-#     if age >= 65
-#     print("Your price is :" + operator)
-#
-#         print(10*0.9)
-#
 #
 # def calculate(num_1, num_2, operator):
 #     print("Sign:" + operator)
@@ -89,8 +83,8 @@
 #     print ("Total ticket price - $10")
 
 
-#block of inputs
-firstName =input('First name: ')
+
+firstName = input('First name: ')
 lastName = input('Last name: ')
 age = int(input('Age: '))
 
@@ -100,10 +94,17 @@ senior_discount = 0.9
 
 if age <= 16:
     print(firstName, lastName, 'your ticket price is ', 10 - price *discount )
-elif age > 16 and age <= 65:
+elif 16 < age <= 65:
     print(firstName, lastName, 'your ticket price is ', price )
-elif age > 65:
+else:
     print(firstName, lastName, 'your ticket price is ', 10 - price *senior_discount )
+
+
+
+# Practice calculator
+
+
+
 
 
 
