@@ -6,6 +6,8 @@ Feature: Test login functionality
     Then Click element "//a[text()='Login']"
     Then Wait 1 seconds
 
+    #any comment
+
   Scenario: Login with correct credentials
     Then Type "pcs.automationclass@gmail.com" into "//input[@name='username']"
     Then Type "Qwerty7" into "//input[@name='password']"
