@@ -7,9 +7,9 @@ Stop if “No”, and stay asking until user answer yes or no. Do not accept any
 """
 
 #getting valid input
-def get_temperature_scale():
+def get_temperature_scale(prompt):
     while True:
-        user_input = input("You want to convert Fahrenheit or Celsius (F/C)? \U0001F601 ").upper()  # Get user input, strip whitespace, and convert to uppercase
+        user_input = input(prompt).upper()  # Get user input, strip whitespace, and convert to uppercase
         if user_input in ("F", "C"):
             return user_input
         else:
@@ -37,7 +37,7 @@ def get_confirmation(prompt):
             print("Invalid input. Please enter 'yes' to continue or 'no' to quit.")
 
 def t_convert():
-    choice = get_temperature_scale()
+    choice = get_temperature_scale("You want to convert to Fahrenheit or Celsius (F/C)? \U0001F601 ")
     if choice == "F":
         t_celsius = get_numeric_input("Type temperature in Celsius: ")
         t_fahr = t_celsius*1.8 + 32
