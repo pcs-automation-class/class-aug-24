@@ -1,16 +1,19 @@
 Feature: Test login functionality
 
-  Scenario: Login with correct credentials
+  Background:
     Given Open "https://profitolizer.com/"
+    Then Wait 50 seconds
     Then Click element "//a[@class='header-link _btn__link']"
+    Then Wait 30 seconds
+
+  Scenario: Login with correct credentials
     Then Type "vasianw@mail.ru" into "//input[@class='ps-3 form-control el-input is-invalid']"
     Then Type "vasian12345" into "//input[@name='password']"
     Then Click element "//button[@type='submit']"
+    Then Wait 10 seconds
     Then Verify presents of element "//span[text()='vasianw']"
 
-  Scenario Outline: Log in with correct credentials
-    Given Open "https://profitolizer.com/"
-    Then Click element "//a[@class='header-link _btn__link']"
+  Scenario Outline: Log in with right credentials
     Then Type "<username>" into "//input[@name='username']"
     Then Type "<password>" into "//input[@name='password']"
     Then Click element "//button[contains(text(), 'Login')]"
@@ -24,10 +27,6 @@ Feature: Test login functionality
 
 
   Scenario: Login with incorrect credentials(invalid password)
-    Given Open "https://profitolizer.com/"
-    Then Wait 4 seconds
-    Then Click element "//a[@class='header-link _btn__link']"
-    Then Wait 4 seconds
     Then Type "vasianw@mail.ru" into "//input[@class='ps-3 form-control el-input is-invalid']"
     Then Wait 1 seconds
     Then Type "wasian12345" into "//input[@name='password']"
@@ -37,10 +36,6 @@ Feature: Test login functionality
     Then Verify presents of element "//div[@id='message_8']"
 
   Scenario: Login without username
-    Given Open "https://profitolizer.com/"
-    Then Wait 4 seconds
-    Then Click element "//a[@class='header-link _btn__link']"
-    Then Wait 4 seconds
     Then Type "vasian12345" into "//input[@name='password']"
     Then Wait 1 seconds
     Then Click element "//button[@type='submit']"
@@ -49,12 +44,28 @@ Feature: Test login functionality
 
 
   Scenario: Login without password
-    Given Open "https://profitolizer.com/"
-    Then Wait 4 seconds
-    Then Click element "//a[@class='header-link _btn__link']"
-    Then Wait 4 seconds
     Then Type "vasianw@mail.ru" into "//input[@class='ps-3 form-control el-input is-invalid']"
     Then Wait 1 seconds
     Then Click element "//button[@type='submit']"
     Then Wait 4 seconds
     Then Verify presents of element "//div[text()='Password is required']"
+
+
+  Scenario: Create new project
+    Then Type "vasianw@mail.ru" into "//input[@class='ps-3 form-control el-input is-invalid']"
+    Then Type "vasian12345" into "//input[@name='password']"
+    Then Click element "//button[@type='submit']"
+    Then Wait 1 seconds
+    Then Verify page by title "Profotolizer - Projects"
+    Then Fill out following information
+      | project       | start_date | description      | dimension | duration |
+      | first project | 09/12/2024 | My first project | Month     | 2 Years  |
+    Then Fill out following information with keys
+      | key                 | value            |
+      | Project Name        | first project 1  |
+      | Start date          | 09/12/2024       |
+      | Project description | My first project |
+      | Period Dimension    | Month            |
+      | Project Duration    | 2 Years          |
+    Then Click element "//button[text()=' Save'][not(contains(@class,'me-2'))]"
+    Then Wait 5 seconds
