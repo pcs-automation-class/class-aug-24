@@ -1,7 +1,7 @@
 
 def calculate_price(age, initial_price):
-    # for age 16 or less discount is 10 %
-    if age <= 16:
+    # for age less than 16 discount is 10 %
+    if age < 16:
         return round(initial_price * 0.9, 2)
     # for age 65 or more discount is 90 %
     elif age >= 65:
