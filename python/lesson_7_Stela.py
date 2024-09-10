@@ -84,21 +84,21 @@
 
 
 
-firstName = input('First name: ')
-lastName = input('Last name: ')
-age = int(input('Age: '))
-
-price = 10
-discount = 0.1
-senior_discount = 0.9
-
-if age <= 16:
-    print(firstName, lastName, 'your ticket price is ', 10 - price *discount )
-elif 16 < age <= 65:
-    print(firstName, lastName, 'your ticket price is ', price )
-else:
-    print(firstName, lastName, 'your ticket price is ', 10 - price *senior_discount )
-
+# firstName = input('First name: ')
+# lastName = input('Last name: ')
+# age = int(input('Age: '))
+#
+# price = 10
+# discount = 0.1
+# senior_discount = 0.9
+#
+# if age <= 16:
+#     print(firstName, lastName, 'your ticket price is ', 10 - price *discount )
+# elif 16 < age <= 65:
+#     print(firstName, lastName, 'your ticket price is ', price )
+# else:
+#     print(firstName, lastName, 'your ticket price is ', 10 - price *senior_discount )
+#
 
 
 # Practice calculator
