@@ -2,6 +2,9 @@ from time import sleep
 
 from behave import step
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 import api
 
 
@@ -17,20 +20,22 @@ def wait_sec(context, sec):
 
 @step('Click element "{xpath}"')
 def click_element(context, xpath):
-    element = context.driver.find_element(By.XPATH, xpath)
+    # element = context.driver.find_element(By.XPATH, xpath)
+    element = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
     element.click()
 
 
 @step('Type "{text}" into "{xpath}"')
 def type_text(context, text, xpath):
-    element = context.driver.find_element(By.XPATH, xpath)
+    element = WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath)))
+    # element = context.driver.find_element(By.XPATH, xpath)
     element.send_keys(text)
 
 
 @step('Verify page by title "{text}"')
 def verify_title(context, text):
     title = context.driver.title
-    assert title == text
+    assert title == text, f"Description of error {text} not expected"
 
 
 @step('Verify presents of element "{xpath}"')
@@ -80,4 +85,5 @@ def create_project_keys(context):
 
 @step('Get weather in "{city}"')
 def get_weather(context, city):
-    api.get_weather(city)
+    weather = api.get_weather(city)
+    print(weather)

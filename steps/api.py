@@ -1,7 +1,12 @@
 import requests
+# from time import sleep
+import time
+
+# time.sleep()
+# sleep()
 
 
-def get_weather(city):
+def get_weather(city: str = "Chicago"):
     url = f"https://api.tomorrow.io/v4/weather/realtime?location={city}&apikey=NX6j4SODwtlAC3FCOLIXc6kwsDZMZU0R"
     headers = {"accept": "application/json"}
     response = requests.get(url, headers=headers)
@@ -11,4 +16,6 @@ def get_weather(city):
 
 
 if __name__ == "__main__":
-    print(get_weather(city="Chicago"))
+    print(get_weather("San Francisco"))
+
+
