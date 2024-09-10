@@ -7,8 +7,8 @@ def get_weather(city):
     response = requests.get(url, headers=headers)
 
     data = response.json()
-    return data["data"]["values"]["temperature"]
+    return f"Temperature in {city} is {data["data"]["values"]["temperature"]}°C"
 
 
 if __name__ == "__main__":
-    print(get_weather(city="San Francisco"))
+    print(get_weather(city="Chicago"))

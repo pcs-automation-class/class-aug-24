@@ -2,6 +2,7 @@ from time import sleep
 
 from behave import step
 from selenium.webdriver.common.by import By
+import api
 
 
 @step('Open "{url}"')
@@ -75,3 +76,8 @@ def create_project_keys(context):
             click_element(context, f"//li/span[text()='{row.cells[1]}']")
         else:
             click_element(context, f"{elements[row.cells[0]]}{row.cells[1]}']")
+
+
+@step('Get weather in "{city}"')
+def get_weather(context, city):
+    api.get_weather(city)
