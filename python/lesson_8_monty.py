@@ -14,16 +14,16 @@ while programm == 'run':
 
     if question == '1':
         celsius = (value - 32) * 5 / 9
-        print(f' \n Your celsius equivalent is: {celsius} farenheits ')
+        print(f' \n Your celsius equivalent is: {celsius} celsius ')
 
     elif question == '2':
         farenheit = (value * 1.8) + 32
-        print(f' \n Your farenheit eqivalent is: {farenheit} celsius ')
+        print(f' \n Your farenheit eqivalent is: {farenheit} farenheits ')
 
     else:
         print('invalid input')
 
-    question_2 = input(' Do you want to continue? \n Please choose yes or no\n')
+    question_2 = input(' \nDo you want to continue? \n Please choose yes or no\n')
     if question_2.lower()=='yes':
         programm = 'run'
 
