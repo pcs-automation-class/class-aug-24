@@ -1,6 +1,6 @@
 import requests
 # from time import sleep
-import time
+# import time
 
 # time.sleep()
 # sleep()
@@ -17,5 +17,3 @@ def get_weather(city: str = "Chicago"):
 
 if __name__ == "__main__":
     print(get_weather("San Francisco"))
-
-
