@@ -1,0 +1,54 @@
+name: Lint Code with Flake8
+
+# Trigger the workflow on pull requests
+on:
+  pull_request:
+    branches:
+      - master  # or the branch you're targeting for pull requests
+
+jobs:
+  flake8-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'  # Specify the Python version you need
+
+      # Install dependencies, including flake8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+
+      # Get a list of changed files in the pull request
+      - name: Get changed files
+        id: changed_files
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          git diff --name-only origin/${{ github.base_ref }} > changed_files.txt
+        shell: bash
+
+      # Filter Python files from changed files and store in a variable
+      - name: Filter Python files
+        id: python_files
+        run: |
+          grep '\.py$' changed_files.txt > py_files.txt || echo '' > py_files.txt
+          py_files=$(cat py_files.txt)
+          echo "::set-output name=files::$py_files"
+        shell: bash
+
+      # Run flake8 on the changed Python files
+      - name: Run flake8
+        run: |
+          if [ -n "${{ steps.python_files.outputs.files }}" ]; then
+            flake8 ${{ steps.python_files.outputs.files }}
+          else
+            echo "No Python files changed, skipping flake8."
+          fi
