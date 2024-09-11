@@ -21,6 +21,7 @@ def wait_sec(context, sec):
 @step('Click element "{xpath}"')
 def click_element(context, xpath):
     # element = context.driver.find_element(By.XPATH, xpath)
+
     element = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath)))
     element.click()
 
