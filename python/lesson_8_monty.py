@@ -6,6 +6,10 @@ while programm == 'run':
     if question.lower()=='q':
         programm = 'stop'
 
+    if programm=='stop':
+        print('\n Thank you for using our convertor!')
+        break
+
     value = float(input('Type value to convert: '))
 
     if question == '1':
@@ -24,7 +28,8 @@ while programm == 'run':
         programm = 'run'
 
     elif question_2.lower()=='no':
-        programm = 'stop'
+        print('\n Thank you for using our convertor!')
+        break
 
     else:
         print('Invalid input')
