@@ -14,11 +14,11 @@ while programm == 'run':
 
     if question == '1':
         celsius = (value - 32) * 5 / 9
-        print(f' Your celsius equivalent is: {celsius} farenheits ')
+        print(f' \n Your celsius equivalent is: {celsius} farenheits ')
 
     elif question == '2':
         farenheit = (value * 1.8) + 32
-        print(f' Your farenheit eqivalent is: {farenheit} celsius ')
+        print(f' \n Your farenheit eqivalent is: {farenheit} celsius ')
 
     else:
         print('invalid input')
