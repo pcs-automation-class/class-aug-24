@@ -13,12 +13,12 @@ while programm == 'run':
     value = float(input('Type value to convert: '))
 
     if question == '1':
-        farenheit = (value * 1.8) + 32
-        print(f' Your farenheit equivalent is: {farenheit} farenheits ')
+        celsius = (value - 32) * 5 / 9
+        print(f' Your celsius equivalent is: {celsius} farenheits ')
 
     elif question == '2':
-        celsius = (value - 32) * 5/9
-        print(f' Your celsius eqivalent is: {celsius} celsius ')
+        farenheit = (value * 1.8) + 32
+        print(f' Your farenheit eqivalent is: {farenheit} celsius ')
 
     else:
         print('invalid input')
