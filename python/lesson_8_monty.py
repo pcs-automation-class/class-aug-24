@@ -32,6 +32,6 @@ while programm == 'run':
         break
 
     else:
-        print('Invalid input')
+        print('\nInvalid input')
 
 
