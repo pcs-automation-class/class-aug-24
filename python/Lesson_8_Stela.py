@@ -157,8 +157,8 @@
 #          print("Invalid input")
 #  Convert : F => C ; C => F .
 
-while True :
-    answer = input( "Chose 1 to convert F to C \n Chose 2 to convert C to F \n Chose q to quit \n Enter your choice")
+while True:
+    answer = input("Chose 1 to convert F to C \n Chose 2 to convert C to F \n Chose q to quit \n Enter your choice")
     if answer == "q":
         break
     value = float(input("Type value to convert: "))
@@ -173,25 +173,8 @@ while True :
         print("Invalid input")
     # Continue or Not
 
-    answer1= input("Do you want to try again?\n Y for Yes \n N for No\n Your choice :")
+    answer1 = input("Do you want to try again?\n Y for Yes \n N for No\n Your choice :")
     if answer1 == "Y":
         continue
     if answer1 == "N":
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
