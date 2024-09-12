@@ -155,8 +155,6 @@
 #
 #     else:
 #          print("Invalid input")
-    
-    
 #  Convert : F => C ; C => F .
 
 while True :
